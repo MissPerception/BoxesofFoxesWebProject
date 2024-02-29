@@ -1,27 +1,29 @@
-﻿using AuthSystem.Areas.Identity.Data;
-using AuthSystem.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using AuthSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace AuthSystem.Controllers
+namespace Boxes_of_Foxes_Website__MVC_.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly UserManager<ApplicationUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger,UserManager<ApplicationUser> userManager)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            this._userManager = userManager;
         }
 
         public IActionResult Index()
         {
-            ViewData["UserID"]=_userManager.GetUserId(this.User);
+            return View();
+        }
+        public IActionResult Merch()
+        {
+            return View();
+        }
+
+        public IActionResult MeetTheTeam()
+        {
             return View();
         }
 
